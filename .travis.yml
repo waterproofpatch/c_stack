@@ -1,0 +1,4 @@
+language: c
+sudo: required
+install: ./install-deps.sh
+script: make && make test

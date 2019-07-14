@@ -1,0 +1,122 @@
+\hypertarget{stack_8c}{}\section{src/stack.c File Reference}
+\label{stack_8c}\index{src/stack.\+c@{src/stack.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stack.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$ \hyperlink{stack_8c_a51b1dcd095b44b32af9e0efbb511a3c2}{stack\+\_\+init} (int depth, void $\ast$($\ast$allocator)(size\+\_\+t), void($\ast$deallocator)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em create a new stack with a fixed depth. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{stack_8c_a8744a592e5aba2e2b0788a372d209b14}{stack\+\_\+top} (\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em retreive, but do not remove, an item from the stack. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{stack_8c_abca8cd7912904bdb52a15309926ef4d1}{stack\+\_\+pop} (\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em remove and retreive an item from the stack. Shrinks the stack by one. \end{DoxyCompactList}\item 
+int \hyperlink{stack_8c_af76b90ea780acbfa914b604b8fdf54ca}{stack\+\_\+push} (\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$stack, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em add an item to the stack. \end{DoxyCompactList}\item 
+int \hyperlink{stack_8c_aa17f98743170e9071d5f878019cfabb9}{stack\+\_\+destroy} (\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em destroy the stack, freeing all resources allocated on creation. User is responsible for freeing elements pointed by stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stack_8c_aa17f98743170e9071d5f878019cfabb9}{}\label{stack_8c_aa17f98743170e9071d5f878019cfabb9} 
+\index{stack.\+c@{stack.\+c}!stack\+\_\+destroy@{stack\+\_\+destroy}}
+\index{stack\+\_\+destroy@{stack\+\_\+destroy}!stack.\+c@{stack.\+c}}
+\subsubsection{\texorpdfstring{stack\+\_\+destroy()}{stack\_destroy()}}
+{\footnotesize\ttfamily int stack\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+destroy the stack, freeing all resources allocated on creation. User is responsible for freeing elements pointed by stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & the stack to destroy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: success. 
+
+0\+: failure. 
+\end{DoxyReturn}
+\hypertarget{stack_8c_a51b1dcd095b44b32af9e0efbb511a3c2}{}\label{stack_8c_a51b1dcd095b44b32af9e0efbb511a3c2} 
+\index{stack.\+c@{stack.\+c}!stack\+\_\+init@{stack\+\_\+init}}
+\index{stack\+\_\+init@{stack\+\_\+init}!stack.\+c@{stack.\+c}}
+\subsubsection{\texorpdfstring{stack\+\_\+init()}{stack\_init()}}
+{\footnotesize\ttfamily \hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t}$\ast$ stack\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{depth,  }\item[{void $\ast$($\ast$)(size\+\_\+t)}]{allocator,  }\item[{void($\ast$)(void $\ast$)}]{deallocator }\end{DoxyParamCaption})}
+
+
+
+create a new stack with a fixed depth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & the size of the stack \\
+\hline
+{\em allocator} & the allocator function to use for allocating the initial stack and slots. \\
+\hline
+{\em deallocator} & the deallocator function to use for deallocating memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sstack\+\_\+t$\ast$\+: the stack to use 
+\end{DoxyReturn}
+\hypertarget{stack_8c_abca8cd7912904bdb52a15309926ef4d1}{}\label{stack_8c_abca8cd7912904bdb52a15309926ef4d1} 
+\index{stack.\+c@{stack.\+c}!stack\+\_\+pop@{stack\+\_\+pop}}
+\index{stack\+\_\+pop@{stack\+\_\+pop}!stack.\+c@{stack.\+c}}
+\subsubsection{\texorpdfstring{stack\+\_\+pop()}{stack\_pop()}}
+{\footnotesize\ttfamily void$\ast$ stack\+\_\+pop (\begin{DoxyParamCaption}\item[{\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+remove and retreive an item from the stack. Shrinks the stack by one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & the stack to pop from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data\+: data elem at stack-\/$>$top. 
+
+N\+U\+LL\+: no data on stack. 
+\end{DoxyReturn}
+\hypertarget{stack_8c_af76b90ea780acbfa914b604b8fdf54ca}{}\label{stack_8c_af76b90ea780acbfa914b604b8fdf54ca} 
+\index{stack.\+c@{stack.\+c}!stack\+\_\+push@{stack\+\_\+push}}
+\index{stack\+\_\+push@{stack\+\_\+push}!stack.\+c@{stack.\+c}}
+\subsubsection{\texorpdfstring{stack\+\_\+push()}{stack\_push()}}
+{\footnotesize\ttfamily int stack\+\_\+push (\begin{DoxyParamCaption}\item[{\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$}]{stack,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+add an item to the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & the stack to push onto. \\
+\hline
+{\em data} & the data to push onto the stack. After the push, data will be at stack-\/$>$top. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: success. 
+
+0\+: failure (stack cannot grow any more) 
+\end{DoxyReturn}
+\hypertarget{stack_8c_a8744a592e5aba2e2b0788a372d209b14}{}\label{stack_8c_a8744a592e5aba2e2b0788a372d209b14} 
+\index{stack.\+c@{stack.\+c}!stack\+\_\+top@{stack\+\_\+top}}
+\index{stack\+\_\+top@{stack\+\_\+top}!stack.\+c@{stack.\+c}}
+\subsubsection{\texorpdfstring{stack\+\_\+top()}{stack\_top()}}
+{\footnotesize\ttfamily void$\ast$ stack\+\_\+top (\begin{DoxyParamCaption}\item[{\hyperlink{stack_8h_acf9c25228b52e7c568d422e72f495405}{sstack\+\_\+t} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+retreive, but do not remove, an item from the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & the stack to get top elem from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data\+: data elem at stack-\/$>$top, or N\+U\+LL if no data is on stack. 
+\end{DoxyReturn}
